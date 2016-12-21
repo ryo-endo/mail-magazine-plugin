@@ -13,6 +13,7 @@ namespace Plugin\MailMagazine;
 
 use Eccube\Common\Constant;
 use Eccube\Entity\Master\CustomerStatus;
+use Eccube\Event\TemplateEvent;
 use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -25,6 +26,39 @@ class MailMagazine
     public function __construct($app)
     {
         $this->app = $app;
+    }
+    
+    public function onRenderEntryIndex(TemplateEvent $event)
+    {
+        // $request = $event->getRequest();
+        // $response = $event->getResponse();
+
+        // // 登録完了画面の場合は終了
+        // if ('POST' === $request->getMethod() && $request->get('mode') == 'complete') {
+        //     return;
+        // }
+        
+        $snipet = $this->app['twig']->getLoader()->getSource('MailMagazine/View/entry_add_mailmaga.twig');
+        $source = $event->getSource();
+        
+        $pattern = '/<dl id="top_box__job">.*?<\/dl>/s';
+        preg_match($pattern, $source, $matches);
+        $search = $matches[0];
+        $replace = $search.$snipet;
+        
+        
+        $source = str_replace($search, $replace, $source);
+        
+        
+        //dump($source);
+        
+        $event->setSource($source);
+
+        // // メールマガジンの送付についての項目を追加したHTMLを取得する
+        // $html = $this->getNewEntryHtml($event, $request, $response);
+
+        // $response->setContent($html);
+        // $event->setResponse($response);
     }
 
     // ===========================================================

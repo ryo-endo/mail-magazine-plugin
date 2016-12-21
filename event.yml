@@ -1,8 +1,8 @@
 #
 # Event fock
 #
-eccube.event.render.entry.before:
-    - [onRenderEntryBefore, NORMAL]
+# eccube.event.render.entry.before:
+#     - [onRenderEntryBefore, NORMAL]
 eccube.event.controller.entry.after:
     - [onControllerEntryAfter, NORMAL]
 eccube.event.render.mypage_change.before:
@@ -13,3 +13,6 @@ eccube.event.render.admin_customer_new.before:
     - [onRenderAdminCustomerBefore, NORMAL]
 eccube.event.render.admin_customer_edit.before:
     - [onRenderAdminCustomerBefore, NORMAL]
+ 
+Entry/index.twig:
+    - [onRenderEntryIndex, NORMAL]
