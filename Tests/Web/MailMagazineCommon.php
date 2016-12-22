@@ -12,14 +12,14 @@
 namespace Plugin\MailMagazine\Tests\Web;
 
 use Eccube\Common\Constant;
-use Eccube\Tests\Web\AbstractWebTestCase;
+use Eccube\Tests\Plugin\Web\Admin\AbstractAdminWebTestCase;
 use Plugin\MailMagazine\Entity\MailmagaCustomer;
 use Plugin\MailMagazine\Entity\MailMagazineSendCustomer;
 use Plugin\MailMagazine\Entity\MailMagazineSendHistory;
 use Plugin\MailMagazine\Entity\MailMagazineTemplate;
 use Plugin\MailMagazine\Util\Version;
 
-class MailMagazineCommon extends AbstractWebTestCase
+class MailMagazineCommon extends AbstractAdminWebTestCase
 {
     public function setUp()
     {
