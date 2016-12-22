@@ -12,14 +12,24 @@
 namespace Plugin\MailMagazine\Tests\Web;
 
 use Eccube\Common\Constant;
-use Eccube\Tests\Web\Admin\AbstractAdminWebTestCase;
+use Eccube\Tests\EccubeTestCase;
 use Plugin\MailMagazine\Entity\MailmagaCustomer;
 use Plugin\MailMagazine\Entity\MailMagazineSendCustomer;
 use Plugin\MailMagazine\Entity\MailMagazineSendHistory;
 use Plugin\MailMagazine\Entity\MailMagazineTemplate;
+use Plugin\MailMagazine\Util\Version;
 
-class MailMagazineCommon extends AbstractAdminWebTestCase
+class MailMagazineCommon extends EccubeTestCase
 {
+    public function setUp()
+    {
+        parent::setUp();
+        
+        if (!Version::isSupport()) {
+            $this->app->loadPlugin();
+        }
+    }
+    
     protected function createMagazineTemplate()
     {
         $fake = $this->getFaker();

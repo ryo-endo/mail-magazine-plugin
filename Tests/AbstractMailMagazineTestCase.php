@@ -2,12 +2,12 @@
 namespace Plugin\MailMagazine\Tests;
 
 use Eccube\Common\Constant;
-use Eccube\Tests\Service\AbstractServiceTestCase;
+use Eccube\Tests\EccubeTestCase;
 use Plugin\MailMagazine\Entity\MailmagaCustomer;
 use Plugin\MailMagazine\Service\MailMagazineService;
 use Plugin\MailMagazine\Util\Version;
 
-abstract class AbstractMailMagazineTestCase extends AbstractServiceTestCase
+abstract class AbstractMailMagazineTestCase extends EccubeTestCase
 {
     /**
      * @var MailMagazineService $mailMagazineService
