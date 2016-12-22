@@ -24,7 +24,7 @@ abstract class AbstractMailMagazineTestCase extends EccubeTestCase
         parent::setUp();
         
         if (!Version::isSupport()) {
-            $this->app->loadPlugin();
+            $this->app->initializePlugin();
         }
         
         $this->mailMagazineService = $this->app['eccube.plugin.mail_magazine.service.mail'];
