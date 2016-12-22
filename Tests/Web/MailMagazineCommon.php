@@ -26,7 +26,7 @@ class MailMagazineCommon extends AbstractAdminWebTestCase
         parent::setUp();
         
         if (!Version::isSupport()) {
-            $this->app->loadPlugin();
+            $this->app->initializePlugin();
         }
     }
     
