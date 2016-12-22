@@ -5,6 +5,7 @@ use Eccube\Common\Constant;
 use Eccube\Tests\Service\AbstractServiceTestCase;
 use Plugin\MailMagazine\Entity\MailmagaCustomer;
 use Plugin\MailMagazine\Service\MailMagazineService;
+use Plugin\MailMagazine\Util\Version;
 
 abstract class AbstractMailMagazineTestCase extends AbstractServiceTestCase
 {
@@ -21,6 +22,11 @@ abstract class AbstractMailMagazineTestCase extends AbstractServiceTestCase
     public function setUp()
     {
         parent::setUp();
+        
+        if (!Version::isSupport()) {
+            $this->app->loadPlugin();
+        }
+        
         $this->mailMagazineService = $this->app['eccube.plugin.mail_magazine.service.mail'];
         $this->mailMagazineSendHistoryRepository = $this->app[MailMagazineService::REPOSITORY_SEND_HISTORY];
     }
