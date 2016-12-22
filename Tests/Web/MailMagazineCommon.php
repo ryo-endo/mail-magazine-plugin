@@ -12,7 +12,7 @@
 namespace Plugin\MailMagazine\Tests\Web;
 
 use Eccube\Common\Constant;
-use Eccube\Tests\Plugin\Web\Admin\AbstractAdminWebTestCase;
+use Eccube\Tests\Web\Admin\AbstractAdminWebTestCase;
 use Plugin\MailMagazine\Entity\MailmagaCustomer;
 use Plugin\MailMagazine\Entity\MailMagazineSendCustomer;
 use Plugin\MailMagazine\Entity\MailMagazineSendHistory;
